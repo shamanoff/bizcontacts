@@ -83,9 +83,8 @@ export class AppComponent implements OnInit {
       years_in_business: years_in_business,
       zipcode: zipcode,
       created_at: created_at
-    }
+    };
 
-    //console.log(newBusiness);
 
     this._firebaseService.addBusiness(newBusiness);
 
@@ -117,7 +116,7 @@ export class AppComponent implements OnInit {
       street_address: this.activeStreetAddress,
       years_in_business: this.activeYearsInBusiness,
       zipcode: this.activeZipcode
-    }
+    };
 
     this._firebaseService.updateBusiness(this.activeKey, updBusiness);
 

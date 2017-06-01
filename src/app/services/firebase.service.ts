@@ -25,13 +25,14 @@ export class FirebaseService {
       }) as
         FirebaseListObservable<Business[]>
     } else {
-      this.businesses = this._af.database.list('/businesses',{
+      this.businesses = this._af.database.list('/businesses', {
         query: {
-        // limitToLast: (10),
+          // limitToLast: (10),
 
-        // orderByChild: 'category',
-        // equalTo: category
-      }}) as
+          // orderByChild: 'category',
+          // equalTo: category
+        }
+      }) as
         FirebaseListObservable<Business[]>
     }
 
