@@ -1,21 +1,21 @@
 import {Injectable} from '@angular/core';
-import {AngularFire, FirebaseListObservable} from 'angularfire2';
 import 'rxjs/add/operator/map';
 import {Category} from '../category';
 import {Business} from '../business';
+import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
 
 @Injectable()
 export class FirebaseService {
   businesses: FirebaseListObservable<Business[]>;
   categories: FirebaseListObservable<Category[]>;
 
-  constructor(private _af: AngularFire) {
+  constructor(private _af: AngularFireDatabase) {
 
   }
 
   getBusinesses(category: string = null) {
     if (category != null) {
-      this.businesses = this._af.database.list('/businesses', {
+      this.businesses = this._af.list('/businesses', {
         query: {
           // limitToLast: (10),
           //
@@ -25,7 +25,7 @@ export class FirebaseService {
       }) as
         FirebaseListObservable<Business[]>
     } else {
-      this.businesses = this._af.database.list('/businesses', {
+      this.businesses = this._af.list('/businesses', {
         query: {
           // limitToLast: (10),
 
@@ -40,7 +40,7 @@ export class FirebaseService {
   }
 
   getCategories() {
-    this.categories = this._af.database.list('/categories') as
+    this.categories = this._af.list('/categories') as
       FirebaseListObservable<Category[]>
     return this.categories;
   }
