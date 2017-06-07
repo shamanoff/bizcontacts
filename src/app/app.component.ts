@@ -48,6 +48,7 @@ export class AppComponent implements OnInit {
   }
 
   filterCategory(category) {
+    console.log('filter work');
     if (category !== '0') {
       this._firebaseService.getBusinesses(category).subscribe(businesses => {
         this.businesses = businesses;

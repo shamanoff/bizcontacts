@@ -19,8 +19,8 @@ export class FirebaseService {
         query: {
           // limitToLast: (10),
           //
-          // orderByChild: 'category',
-          // equalTo: category
+          orderByChild: 'category',
+          equalTo: category
         }
       }) as
         FirebaseListObservable<Business[]>
